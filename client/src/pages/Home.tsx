@@ -81,8 +81,8 @@ export default function Home() {
   useEffect(() => {
     const loadDatabase = async () => {
       try {
-        // Import the database directly instead of fetching
-        const data = await import("../../public/panelDatabase.json");
+        // Import the database directly
+        const data = await import("../panelDatabase.json");
         setDatabase(data.default || data);
       } catch (error) {
         console.error("Failed to load database:", error);
