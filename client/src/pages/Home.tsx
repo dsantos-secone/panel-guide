@@ -9,8 +9,9 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AlertCircle, ExternalLink, Info } from "lucide-react";
+import { AlertCircle, ExternalLink, Info, Shield } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
+import panelDatabaseRaw from "../panelDatabase.json";
 
 interface PanelModel {
   code: string;
@@ -69,27 +70,13 @@ interface Database {
 }
 
 export default function Home() {
-  const [database, setDatabase] = useState<Database | null>(null);
+  const [database] = useState<Database>(panelDatabaseRaw as Database);
   const [selectedMfg, setSelectedMfg] = useState<string>("");
   const [selectedSeries, setSelectedSeries] = useState<string>("");
   const [selectedModel, setSelectedModel] = useState<string>("");
   const [panelData, setPanelData] = useState<PanelModel | null>(null);
   const [seriesData, setSeriesData] = useState<Series | null>(null);
   const [mfgData, setMfgData] = useState<Manufacturer | null>(null);
-
-  // Load database
-  useEffect(() => {
-    const loadDatabase = async () => {
-      try {
-        // Import the database directly
-        const data = await import("../panelDatabase.json");
-        setDatabase(data.default || data);
-      } catch (error) {
-        console.error("Failed to load database:", error);
-      }
-    };
-    loadDatabase();
-  }, []);
 
   // Reset dependent selects when manufacturer changes
   useEffect(() => {
@@ -124,39 +111,44 @@ export default function Home() {
   const getStatusColor = (status: string) => {
     switch (status) {
       case "active":
-        return "bg-green-100 text-green-800";
+        return "bg-green-50 text-green-700 border border-green-200";
       case "legacy":
-        return "bg-yellow-100 text-yellow-800";
+        return "bg-amber-50 text-amber-700 border border-amber-200";
       case "vintage":
-        return "bg-gray-100 text-gray-800";
+        return "bg-slate-100 text-slate-700 border border-slate-300";
       default:
-        return "bg-gray-100 text-gray-800";
+        return "bg-slate-100 text-slate-700 border border-slate-300";
     }
   };
 
   const getDiscontinuedColor = (discontinued: boolean) => {
     return discontinued
-      ? "bg-red-50 border-red-200"
-      : "bg-white border-gray-200";
+      ? "bg-red-50 border-l-4 border-l-red-600"
+      : "bg-white border-l-4 border-l-green-600";
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-[#FAFAFA] to-[#F5F5F5]">
       {/* Header */}
-      <header className="bg-gradient-to-r from-slate-900 to-slate-800 border-b-4 border-red-600 shadow-lg">
+      <header className="bg-gradient-to-r from-[#2E302E] to-[#1A1C1A] border-b-4 border-[#D02E35] shadow-lg">
         <div className="container py-8">
-          <div className="flex items-center justify-between">
-            <div>
-              <h1 className="text-4xl font-bold text-white">
-                SECURITY<span className="text-red-500">ONE</span>
-              </h1>
-              <p className="text-slate-300 text-sm mt-1">
-                Comprehensive Panel Reference Guide v25
-              </p>
+          <div className="flex items-center justify-between gap-8">
+            <div className="flex items-center gap-4">
+              <div className="bg-[#D02E35] p-3 rounded-lg">
+                <Shield className="w-8 h-8 text-white" />
+              </div>
+              <div>
+                <h1 className="text-4xl font-bold text-white font-montserrat">
+                  SECURITY<span className="text-[#D02E35]">ONE</span>
+                </h1>
+                <p className="text-slate-300 text-sm mt-1 font-opensans">
+                  Technical Panel Reference Guide
+                </p>
+              </div>
             </div>
             <div className="text-right text-slate-300 text-sm">
-              <p>Complete Database</p>
-              <p>1980 - Present</p>
+              <p className="font-montserrat font-semibold">Stop Crime Before It Starts™</p>
+              <p className="text-xs mt-1">AI Detected. Human Intervened.</p>
             </div>
           </div>
         </div>
@@ -164,37 +156,40 @@ export default function Home() {
 
       <div className="container py-8">
         {/* Selector Section */}
-        <Card className="mb-8 shadow-md">
-          <CardHeader className="bg-slate-50 border-b">
-            <CardTitle className="text-lg">Panel Selector</CardTitle>
+        <Card className="mb-8 shadow-md border-0">
+          <CardHeader className="bg-[#F5F5F5] border-b border-[#E8E0D0] pb-4">
+            <CardTitle className="text-lg text-[#2E302E] font-montserrat">
+              Select Your Panel
+            </CardTitle>
+            <p className="text-sm text-[#757875] mt-1 font-opensans">
+              Choose manufacturer, series, and model to view specifications and compatibility
+            </p>
           </CardHeader>
           <CardContent className="pt-6">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {/* Manufacturer Select */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-[#2E302E] mb-2 font-montserrat">
                   1. Manufacturer
                 </label>
                 <Select value={selectedMfg} onValueChange={setSelectedMfg}>
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full border-[#E8E0D0] bg-white">
                     <SelectValue placeholder="Select manufacturer..." />
                   </SelectTrigger>
                   <SelectContent>
                     {database &&
-                      Object.entries(database.manufacturers).map(
-                        ([key, mfg]) => (
-                          <SelectItem key={key} value={key}>
-                            {mfg.name}
-                          </SelectItem>
-                        )
-                      )}
+                      Object.entries(database.manufacturers).map(([key, mfg]) => (
+                        <SelectItem key={key} value={key}>
+                          {mfg.name}
+                        </SelectItem>
+                      ))}
                   </SelectContent>
                 </Select>
               </div>
 
               {/* Series Select */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-[#2E302E] mb-2 font-montserrat">
                   2. Series
                 </label>
                 <Select
@@ -202,7 +197,7 @@ export default function Home() {
                   onValueChange={setSelectedSeries}
                   disabled={!selectedMfg}
                 >
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full border-[#E8E0D0] bg-white">
                     <SelectValue placeholder="Select series..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -218,7 +213,7 @@ export default function Home() {
 
               {/* Model Select */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 mb-2">
+                <label className="block text-sm font-semibold text-[#2E302E] mb-2 font-montserrat">
                   3. Model
                 </label>
                 <Select
@@ -226,7 +221,7 @@ export default function Home() {
                   onValueChange={setSelectedModel}
                   disabled={!selectedSeries}
                 >
-                  <SelectTrigger className="w-full">
+                  <SelectTrigger className="w-full border-[#E8E0D0] bg-white">
                     <SelectValue placeholder="Select model..." />
                   </SelectTrigger>
                   <SelectContent>
@@ -247,51 +242,51 @@ export default function Home() {
         {panelData && seriesData && mfgData && (
           <div className="space-y-6">
             {/* Panel Header Card */}
-            <Card className="shadow-lg border-l-4 border-l-red-600">
-              <CardHeader className="pb-3">
+            <Card className="shadow-lg border-0 border-l-4 border-l-[#D02E35]">
+              <CardHeader className="pb-3 bg-white">
                 <div className="flex items-start justify-between">
                   <div>
-                    <CardTitle className="text-3xl font-bold text-slate-900">
+                    <CardTitle className="text-3xl font-bold text-[#2E302E] font-montserrat">
                       {panelData.code}
                     </CardTitle>
-                    <p className="text-slate-600 mt-1">{panelData.name}</p>
-                    <p className="text-sm text-slate-500 mt-2">
+                    <p className="text-[#757875] mt-1 font-opensans">{panelData.name}</p>
+                    <p className="text-sm text-[#757875] mt-2 font-opensans">
                       {mfgData.name} • {seriesData.description}
                     </p>
                   </div>
-                  <Badge className={`${getStatusColor(seriesData.status)} text-xs font-bold px-3 py-1`}>
+                  <Badge className={`${getStatusColor(seriesData.status)} text-xs font-bold px-3 py-1 font-montserrat`}>
                     {seriesData.status.toUpperCase()}
                   </Badge>
                 </div>
               </CardHeader>
-              <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div className="bg-slate-50 p-4 rounded">
-                  <p className="text-xs text-slate-600 font-semibold">ZONES</p>
-                  <p className="text-2xl font-bold text-slate-900">
+              <CardContent className="grid grid-cols-2 md:grid-cols-4 gap-4 bg-[#F5F5F5]">
+                <div className="bg-white p-4 rounded border border-[#E8E0D0]">
+                  <p className="text-xs text-[#757875] font-semibold font-montserrat">ZONES</p>
+                  <p className="text-2xl font-bold text-[#D02E35] font-montserrat">
                     {panelData.zones}
                   </p>
                 </div>
-                <div className="bg-slate-50 p-4 rounded">
-                  <p className="text-xs text-slate-600 font-semibold">
+                <div className="bg-white p-4 rounded border border-[#E8E0D0]">
+                  <p className="text-xs text-[#757875] font-semibold font-montserrat">
                     WIRELESS
                   </p>
-                  <p className="text-lg font-bold text-green-600">
+                  <p className="text-lg font-bold text-green-600 font-montserrat">
                     {panelData.wireless ? "Yes" : "Hardwired"}
                   </p>
                 </div>
-                <div className="bg-slate-50 p-4 rounded">
-                  <p className="text-xs text-slate-600 font-semibold">
+                <div className="bg-white p-4 rounded border border-[#E8E0D0]">
+                  <p className="text-xs text-[#757875] font-semibold font-montserrat">
                     RELEASE YEAR
                   </p>
-                  <p className="text-2xl font-bold text-slate-900">
+                  <p className="text-2xl font-bold text-[#2E302E] font-montserrat">
                     {panelData.releaseYear}
                   </p>
                 </div>
-                <div className="bg-slate-50 p-4 rounded">
-                  <p className="text-xs text-slate-600 font-semibold">
+                <div className="bg-white p-4 rounded border border-[#E8E0D0]">
+                  <p className="text-xs text-[#757875] font-semibold font-montserrat">
                     EOL RESISTOR
                   </p>
-                  <p className="text-lg font-bold text-red-600">
+                  <p className="text-lg font-bold text-[#D02E35] font-montserrat">
                     {panelData.eolResistor}
                   </p>
                 </div>
@@ -300,9 +295,9 @@ export default function Home() {
 
             {/* Notes */}
             {panelData.notes && (
-              <Alert className="border-blue-200 bg-blue-50">
-                <Info className="h-4 w-4 text-blue-600" />
-                <AlertDescription className="text-blue-900">
+              <Alert className="border-[#2C3E50] bg-[#2C3E50] border-0">
+                <Info className="h-4 w-4 text-white" />
+                <AlertDescription className="text-white font-opensans">
                   {panelData.notes}
                 </AlertDescription>
               </Alert>
@@ -311,86 +306,83 @@ export default function Home() {
             {/* Peripherals Section */}
             {mfgData.peripherals && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-slate-900">
+                <h2 className="text-2xl font-bold text-[#2E302E] font-montserrat">
                   Compatible Peripherals
                 </h2>
 
-                {Object.entries(mfgData.peripherals).map(
-                  ([category, items]) => (
-                    <Card key={category} className="shadow-md">
-                      <CardHeader className="bg-slate-50 border-b pb-3">
-                        <CardTitle className="text-lg text-slate-900">
-                          {category}
-                        </CardTitle>
-                      </CardHeader>
-                      <CardContent className="pt-4">
-                        <div className="space-y-3">
-                          {items
-                            .filter((item) =>
-                              item.compatibility.includes(panelData.code)
-                            )
-                            .map((item) => (
-                              <div
-                                key={item.code}
-                                className={`p-4 rounded border-2 transition-all ${getDiscontinuedColor(item.discontinued)}`}
-                              >
-                                <div className="flex items-start justify-between mb-2">
-                                  <div>
-                                    <p className="font-mono font-bold text-red-600 text-lg">
-                                      {item.code}
-                                    </p>
-                                    <p className="font-semibold text-slate-900">
-                                      {item.name}
-                                    </p>
-                                  </div>
-                                  {item.discontinued && (
-                                    <Badge className="bg-red-600 text-white text-xs">
-                                      DISCONTINUED
-                                    </Badge>
-                                  )}
+                {Object.entries(mfgData.peripherals).map(([category, items]) => (
+                  <Card key={category} className="shadow-md border-0">
+                    <CardHeader className="bg-[#F5F5F5] border-b border-[#E8E0D0] pb-3">
+                      <CardTitle className="text-lg text-[#2E302E] font-montserrat">
+                        {category}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="pt-4">
+                      <div className="space-y-3">
+                        {items
+                          .filter((item) =>
+                            item.compatibility.includes(panelData.code)
+                          )
+                          .map((item) => (
+                            <div
+                              key={item.code}
+                              className={`p-4 rounded border-2 transition-all ${getDiscontinuedColor(item.discontinued)}`}
+                            >
+                              <div className="flex items-start justify-between mb-2">
+                                <div>
+                                  <p className="font-mono font-bold text-[#D02E35] text-lg font-montserrat">
+                                    {item.code}
+                                  </p>
+                                  <p className="font-semibold text-[#2E302E] font-opensans">
+                                    {item.name}
+                                  </p>
                                 </div>
-                                <div className="flex items-center gap-2 mb-2">
-                                  <Badge variant="outline" className="text-xs">
-                                    {item.type}
+                                {item.discontinued && (
+                                  <Badge className="bg-[#D02E35] text-white text-xs font-montserrat">
+                                    DISCONTINUED
                                   </Badge>
-                                </div>
-                                {item.replacement && (
-                                  <Alert className="border-amber-200 bg-amber-50 mt-2">
-                                    <AlertCircle className="h-4 w-4 text-amber-600" />
-                                    <AlertDescription className="text-amber-900 text-sm">
-                                      <strong>Replacement:</strong>{" "}
-                                      {item.replacement}
-                                    </AlertDescription>
-                                  </Alert>
                                 )}
                               </div>
-                            ))}
-                          {items.filter((item) =>
-                            item.compatibility.includes(panelData.code)
-                          ).length === 0 && (
-                            <p className="text-slate-500 italic">
-                              No {category.toLowerCase()} listed for this model.
-                            </p>
-                          )}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  )
-                )}
+                              <div className="flex items-center gap-2 mb-2">
+                                <Badge variant="outline" className="text-xs font-opensans">
+                                  {item.type}
+                                </Badge>
+                              </div>
+                              {item.replacement && (
+                                <Alert className="border-amber-200 bg-amber-50 mt-2 border-0 border-l-4 border-l-amber-600">
+                                  <AlertCircle className="h-4 w-4 text-amber-600" />
+                                  <AlertDescription className="text-amber-900 text-sm font-opensans">
+                                    <strong>Replacement:</strong> {item.replacement}
+                                  </AlertDescription>
+                                </Alert>
+                              )}
+                            </div>
+                          ))}
+                        {items.filter((item) =>
+                          item.compatibility.includes(panelData.code)
+                        ).length === 0 && (
+                          <p className="text-[#757875] italic font-opensans">
+                            No {category.toLowerCase()} listed for this model.
+                          </p>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
               </div>
             )}
 
             {/* Radio Compatibility Matrix */}
             {database && (
               <div className="space-y-4">
-                <h2 className="text-2xl font-bold text-slate-900">
+                <h2 className="text-2xl font-bold text-[#2E302E] font-montserrat">
                   Radio Compatibility
                 </h2>
 
                 {/* LTE Radios */}
-                <Card className="shadow-md">
-                  <CardHeader className="bg-green-50 border-b pb-3">
-                    <CardTitle className="text-lg text-green-900">
+                <Card className="shadow-md border-0">
+                  <CardHeader className="bg-green-50 border-b border-green-200 pb-3">
+                    <CardTitle className="text-lg text-green-900 font-montserrat">
                       LTE Communicators
                     </CardTitle>
                   </CardHeader>
@@ -405,19 +397,19 @@ export default function Home() {
                         >
                           <div className="flex items-start justify-between mb-2">
                             <div>
-                              <p className="font-mono font-bold text-green-700 text-lg">
+                              <p className="font-mono font-bold text-green-700 text-lg font-montserrat">
                                 {radio.radioModel}
                               </p>
-                              <p className="font-semibold text-slate-900">
+                              <p className="font-semibold text-[#2E302E] font-opensans">
                                 {radio.technology}
                               </p>
                             </div>
-                            <Badge className="bg-green-600 text-white text-xs">
+                            <Badge className="bg-green-600 text-white text-xs font-montserrat">
                               {radio.carrier}
                             </Badge>
                           </div>
                           {radio.replaces && radio.replaces.length > 0 && (
-                            <p className="text-sm text-slate-600">
+                            <p className="text-sm text-[#757875] font-opensans">
                               <strong>Replaces:</strong> {radio.replaces.join(", ")}
                             </p>
                           )}
@@ -426,7 +418,7 @@ export default function Home() {
                       {database.radioCompatibilityMatrix.LTE.filter((radio) =>
                         radio.compatiblePanels.includes(panelData.code)
                       ).length === 0 && (
-                        <p className="text-slate-500 italic">
+                        <p className="text-[#757875] italic font-opensans">
                           No LTE radios listed for this model.
                         </p>
                       )}
@@ -439,18 +431,17 @@ export default function Home() {
                   (radio) =>
                     radio.compatiblePanels.includes(panelData.code)
                 ) && (
-                  <Card className="shadow-md border-l-4 border-l-red-600">
-                    <CardHeader className="bg-red-50 border-b pb-3">
-                      <CardTitle className="text-lg text-red-900">
+                  <Card className="shadow-md border-0 border-l-4 border-l-[#D02E35]">
+                    <CardHeader className="bg-red-50 border-b border-red-200 pb-3">
+                      <CardTitle className="text-lg text-red-900 font-montserrat">
                         Deprecated 3G Radios (Sunset)
                       </CardTitle>
                     </CardHeader>
                     <CardContent className="pt-4">
-                      <Alert className="border-red-300 bg-red-50 mb-4">
+                      <Alert className="border-red-300 bg-red-50 mb-4 border-0 border-l-4 border-l-red-600">
                         <AlertCircle className="h-4 w-4 text-red-600" />
-                        <AlertDescription className="text-red-900">
-                          3G networks have been sunset. Upgrade to LTE
-                          immediately for continued service.
+                        <AlertDescription className="text-red-900 font-opensans">
+                          3G networks have been sunset. Upgrade to LTE immediately for continued service.
                         </AlertDescription>
                       </Alert>
                       <div className="space-y-3">
@@ -465,23 +456,23 @@ export default function Home() {
                             >
                               <div className="flex items-start justify-between mb-2">
                                 <div>
-                                  <p className="font-mono font-bold text-red-700 text-lg">
+                                  <p className="font-mono font-bold text-red-700 text-lg font-montserrat">
                                     {radio.radioModel}
                                   </p>
-                                  <p className="font-semibold text-slate-900">
+                                  <p className="font-semibold text-[#2E302E] font-opensans">
                                     {radio.technology}
                                   </p>
                                 </div>
-                                <Badge className="bg-red-600 text-white text-xs">
+                                <Badge className="bg-red-600 text-white text-xs font-montserrat">
                                   DEPRECATED
                                 </Badge>
                               </div>
-                              <p className="text-sm text-slate-600 mb-2">
+                              <p className="text-sm text-[#757875] mb-2 font-opensans">
                                 <strong>Upgrade to:</strong> {radio.replacedBy}
                               </p>
-                              <Alert className="border-amber-200 bg-amber-50">
+                              <Alert className="border-amber-200 bg-amber-50 border-0 border-l-4 border-l-amber-600">
                                 <AlertCircle className="h-4 w-4 text-amber-600" />
-                                <AlertDescription className="text-amber-900 text-sm">
+                                <AlertDescription className="text-amber-900 text-sm font-opensans">
                                   {radio.deprecationNote}
                                 </AlertDescription>
                               </Alert>
@@ -495,10 +486,10 @@ export default function Home() {
             )}
 
             {/* Manufacturer Link */}
-            <div className="flex justify-center">
+            <div className="flex justify-center pt-4">
               <Button
                 onClick={() => window.open(mfgData.url, "_blank")}
-                className="gap-2 bg-slate-900 hover:bg-slate-800"
+                className="gap-2 bg-[#D02E35] hover:bg-[#9B2027] text-white font-montserrat font-semibold"
               >
                 Visit {mfgData.name} <ExternalLink className="w-4 h-4" />
               </Button>
@@ -508,15 +499,28 @@ export default function Home() {
 
         {/* Empty State */}
         {!panelData && (
-          <Card className="shadow-md">
+          <Card className="shadow-md border-0">
             <CardContent className="pt-12 pb-12 text-center">
-              <p className="text-slate-500 text-lg">
-                Select a manufacturer, series, and model to view panel details.
+              <Shield className="w-16 h-16 text-[#D02E35] mx-auto mb-4 opacity-30" />
+              <p className="text-[#757875] text-lg font-opensans">
+                Select a manufacturer, series, and model to view panel specifications and compatibility information.
+              </p>
+              <p className="text-sm text-[#757875] mt-2 font-opensans">
+                Stop Crime Before It Starts™ — AI Detected. Human Intervened.
               </p>
             </CardContent>
           </Card>
         )}
       </div>
+
+      {/* Footer */}
+      <footer className="bg-[#2E302E] text-[#F5F5F5] mt-16 border-t-4 border-[#D02E35]">
+        <div className="container py-8 text-center text-sm font-opensans">
+          <p className="font-montserrat font-semibold mb-2">SECURITY ONE | Technical Reference Guide</p>
+          <p>Protecting Southern Ontario for 45+ years</p>
+          <p className="text-[#757875] mt-2">Built on Innovation. Rooted in Community.</p>
+        </div>
+      </footer>
     </div>
   );
 }
