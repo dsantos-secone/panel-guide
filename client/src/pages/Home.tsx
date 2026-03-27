@@ -32,7 +32,7 @@ interface Peripheral {
 }
 
 interface Series {
-  status: "active" | "legacy" | "vintage";
+  status: string;
   releaseYear: number;
   description: string;
   models: PanelModel[];
@@ -81,9 +81,9 @@ export default function Home() {
   useEffect(() => {
     const loadDatabase = async () => {
       try {
-        const response = await fetch("/panelDatabase.json");
-        const data = await response.json();
-        setDatabase(data);
+        // Import the database directly instead of fetching
+        const data = await import("../../public/panelDatabase.json");
+        setDatabase(data.default || data);
       } catch (error) {
         console.error("Failed to load database:", error);
       }
