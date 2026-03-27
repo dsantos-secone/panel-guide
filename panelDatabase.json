@@ -1,0 +1,886 @@
+{
+  "manufacturers": {
+    "DSC": {
+      "name": "DSC (Digital Security Controls) / Tyco",
+      "url": "https://www.dsc.com/",
+      "series": {
+        "PowerSeries NEO": {
+          "status": "active",
+          "releaseYear": 2019,
+          "description": "Modern encrypted wireless panel with LTE/IP dual path",
+          "models": [
+            {
+              "code": "HS2032",
+              "name": "PowerSeries NEO 32-Zone",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2019,
+              "eolResistor": "Selectable"
+            },
+            {
+              "code": "HS2064",
+              "name": "PowerSeries NEO 64-Zone",
+              "zones": 64,
+              "wireless": true,
+              "releaseYear": 2019,
+              "eolResistor": "Selectable"
+            },
+            {
+              "code": "HS2128",
+              "name": "PowerSeries NEO 128-Zone",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2019,
+              "eolResistor": "Selectable"
+            }
+          ]
+        },
+        "PowerSeries": {
+          "status": "legacy",
+          "releaseYear": 2004,
+          "description": "Industry standard hybrid hardwired/wireless panel",
+          "models": [
+            {
+              "code": "PC1832",
+              "name": "PowerSeries 32-Zone",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2004,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Most common legacy panel, v4.6 firmware standard"
+            },
+            {
+              "code": "PC1864",
+              "name": "PowerSeries 64-Zone",
+              "zones": 64,
+              "wireless": true,
+              "releaseYear": 2005,
+              "eolResistor": "5.6k Ohm",
+              "notes": "High-capacity legacy variant"
+            },
+            {
+              "code": "PC1616",
+              "name": "PowerSeries 16-Zone",
+              "zones": 16,
+              "wireless": true,
+              "releaseYear": 2003,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Residential entry-level"
+            },
+            {
+              "code": "PC1555",
+              "name": "PowerSeries Classic (Power632)",
+              "zones": 8,
+              "wireless": false,
+              "releaseYear": 1998,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Vintage hardwired only, no wireless capability"
+            },
+            {
+              "code": "PC5010",
+              "name": "PowerSeries Early Hybrid (Power832)",
+              "zones": 8,
+              "wireless": true,
+              "releaseYear": 2000,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Early generation hybrid, limited wireless support"
+            }
+          ]
+        },
+        "ClassicSeries": {
+          "status": "vintage",
+          "releaseYear": 1990,
+          "description": "Original DSC hardwired panels from the 1990s",
+          "models": [
+            {
+              "code": "PC1500",
+              "name": "Classic 6-Zone",
+              "zones": 6,
+              "wireless": false,
+              "releaseYear": 1990,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Entry-level hardwired, no expansion"
+            },
+            {
+              "code": "PC1550",
+              "name": "Classic 8-Zone",
+              "zones": 8,
+              "wireless": false,
+              "releaseYear": 1992,
+              "eolResistor": "5.6k Ohm",
+              "notes": "Expandable to 16 zones with modules"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Keypads": [
+          {
+            "code": "PK5500",
+            "name": "Alpha LCD Keypad",
+            "type": "Wired",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "RFK5501",
+            "name": "Fixed LCD Wireless Keypad (433MHz)",
+            "type": "Wireless",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "WS9LCDF9",
+            "name": "PowerG 2-Way LCD Keypad",
+            "type": "Wireless PowerG",
+            "compatibility": ["HS2032", "HS2064", "HS2128", "Qolsys IQ Panel 2 Plus"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Sensors": [
+          {
+            "code": "PG9914",
+            "name": "PowerG Motion Detector",
+            "type": "Wireless Motion",
+            "compatibility": ["HS2032", "HS2064", "HS2128"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "PG9936",
+            "name": "PowerG Door/Window Contact",
+            "type": "Wireless Contact",
+            "compatibility": ["HS2032", "HS2064", "HS2128"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Communicators": [
+          {
+            "code": "TL280LE",
+            "name": "LTE/IP Dual Path Communicator",
+            "type": "Cellular/IP",
+            "compatibility": ["HS2032", "HS2064", "HS2128"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "LE4010",
+            "name": "Universal LTE Communicator",
+            "type": "Cellular",
+            "compatibility": ["PC1616", "PC1832", "PC1864", "HS2032", "HS2064", "HS2128"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "3G2060R",
+            "name": "HSPA Cellular Communicator",
+            "type": "Cellular 3G",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": true,
+            "replacement": "LE4010 (LTE replacement for 3G sunset)"
+          },
+          {
+            "code": "TL260-LTE",
+            "name": "Internet/LTE Dual Path",
+            "type": "Cellular/IP",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Expansion": [
+          {
+            "code": "PC5108",
+            "name": "8-Zone Hardwire Expander",
+            "type": "Zone Expansion",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "PC5204",
+            "name": "4-Zone Output Expander",
+            "type": "PGM Expansion",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ]
+      }
+    },
+    "Honeywell": {
+      "name": "Honeywell / Resideo",
+      "url": "https://www.resideo.com/",
+      "series": {
+        "VISTA Series": {
+          "status": "active",
+          "releaseYear": 1998,
+          "description": "Industry-standard hybrid hardwired/wireless panels",
+          "models": [
+            {
+              "code": "VISTA-20P",
+              "name": "VISTA 20P Standard",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 1998,
+              "eolResistor": "2k Ohm",
+              "notes": "Most common VISTA variant, proven reliability"
+            },
+            {
+              "code": "VISTA-15P",
+              "name": "VISTA 15P Residential",
+              "zones": 16,
+              "wireless": true,
+              "releaseYear": 2000,
+              "eolResistor": "2k Ohm",
+              "notes": "Compact residential version"
+            },
+            {
+              "code": "VISTA-128BPT",
+              "name": "VISTA 128 Commercial",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2005,
+              "eolResistor": "2k Ohm",
+              "notes": "Commercial fire/burg capability"
+            },
+            {
+              "code": "VISTA-250BPT",
+              "name": "VISTA 250 Enterprise",
+              "zones": 250,
+              "wireless": true,
+              "releaseYear": 2008,
+              "eolResistor": "2k Ohm",
+              "notes": "Large-scale commercial installations"
+            },
+            {
+              "code": "VISTA-21iP",
+              "name": "VISTA 21iP IP-Ready",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2012,
+              "eolResistor": "2k Ohm",
+              "notes": "Built-in IP communicator support"
+            }
+          ]
+        },
+        "LYNX Series": {
+          "status": "legacy",
+          "releaseYear": 2008,
+          "description": "All-in-one touchscreen panels with integrated wireless",
+          "models": [
+            {
+              "code": "L7000",
+              "name": "LYNX Touch 7\" Screen",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2008,
+              "eolResistor": "N/A",
+              "notes": "Large touchscreen interface"
+            },
+            {
+              "code": "L5210",
+              "name": "LYNX Touch Color (V3.0+)",
+              "zones": 64,
+              "wireless": true,
+              "releaseYear": 2010,
+              "eolResistor": "N/A",
+              "notes": "Color display, advanced features"
+            },
+            {
+              "code": "L5100",
+              "name": "LYNX Touch Original",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2006,
+              "eolResistor": "N/A",
+              "notes": "First-generation touchscreen panel"
+            },
+            {
+              "code": "L3000",
+              "name": "LYNX Plus Fixed",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2005,
+              "eolResistor": "N/A",
+              "notes": "Fixed English, no touchscreen"
+            }
+          ]
+        },
+        "Lyric": {
+          "status": "active",
+          "releaseYear": 2014,
+          "description": "Modern WiFi/LTE hub with mobile app control",
+          "models": [
+            {
+              "code": "Lyric Controller",
+              "name": "Lyric WiFi/LTE Hub",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2014,
+              "eolResistor": "N/A",
+              "notes": "Cloud-connected, mobile app support"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Keypads": [
+          {
+            "code": "6160RF",
+            "name": "Alpha Wireless Keypad (5800 Series)",
+            "type": "Wireless",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "L5210", "L7000"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "6150RF",
+            "name": "Numeric Wireless Keypad",
+            "type": "Wireless",
+            "compatibility": ["VISTA-15P", "VISTA-20P"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "6160",
+            "name": "Alpha Hardwired Keypad",
+            "type": "Wired",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Sensors": [
+          {
+            "code": "5800PIR-RES",
+            "name": "345MHz Wireless Motion Detector",
+            "type": "Wireless Motion",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "L5210", "L7000"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "5816",
+            "name": "Door/Window Contact",
+            "type": "Wireless Contact",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "5834-4",
+            "name": "4-Button Wireless Keyfob",
+            "type": "Wireless Remote",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "5828",
+            "name": "Wireless Keypad (2-Way)",
+            "type": "Wireless Keypad",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Communicators": [
+          {
+            "code": "LTEM-XV",
+            "name": "Verizon LTE Cat-M1 Communicator",
+            "type": "Cellular LTE",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "VISTA-128FBPT"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "LTEM-XA",
+            "name": "AT&T LTE Cat-M1 Communicator",
+            "type": "Cellular LTE",
+            "compatibility": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "VISTA-128FBPT"],
+            "discontinued": false,
+            "replacement": "Replaces: GSMX4G, CDMA-X, LTE-XV, LTE-XA"
+          },
+          {
+            "code": "LTE-XV",
+            "name": "Verizon LTE Radio (Legacy)",
+            "type": "Cellular LTE",
+            "compatibility": ["L5210", "L7000"],
+            "discontinued": true,
+            "replacement": "LTEM-XV (newer model)"
+          },
+          {
+            "code": "LTE-L57V",
+            "name": "Verizon LTE Module",
+            "type": "Cellular LTE",
+            "compatibility": ["L5210", "L7000"],
+            "discontinued": true,
+            "replacement": "LTEM-XV"
+          },
+          {
+            "code": "LTE-L57A",
+            "name": "AT&T LTE Module",
+            "type": "Cellular LTE",
+            "compatibility": ["L5210", "L7000"],
+            "discontinued": true,
+            "replacement": "LTEM-XA"
+          },
+          {
+            "code": "SEM-300",
+            "name": "Alarm.com LTE SEM",
+            "type": "Cellular LTE",
+            "compatibility": ["PC1616", "PC1832", "PC1864"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "SEM-VISTA-300",
+            "name": "ADC SEM for VISTA",
+            "type": "Cellular LTE",
+            "compatibility": ["VISTA-15P", "VISTA-20P"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ]
+      }
+    },
+    "Qolsys": {
+      "name": "Qolsys (Johnson Controls)",
+      "url": "https://iqsecurityproducts.com/",
+      "series": {
+        "IQ Panel Series": {
+          "status": "active",
+          "releaseYear": 2013,
+          "description": "Modern PowerG wireless panels with mobile app integration",
+          "models": [
+            {
+              "code": "IQ Panel 5",
+              "name": "IQ Panel 5 Modular Hub",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2024,
+              "eolResistor": "4.7k Ohm",
+              "notes": "Latest generation with modular design"
+            },
+            {
+              "code": "IQ Panel 4",
+              "name": "IQ Panel 4 Standard",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2018,
+              "eolResistor": "4.7k Ohm",
+              "notes": "Current standard AIO panel"
+            },
+            {
+              "code": "IQ Panel 2 Plus",
+              "name": "IQ Panel 2 Plus Legacy AIO",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2015,
+              "eolResistor": "4.7k Ohm",
+              "notes": "Backward compatible with legacy RF sensors"
+            },
+            {
+              "code": "IQ Panel 2",
+              "name": "IQ Panel 2 Original",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2013,
+              "eolResistor": "4.7k Ohm",
+              "notes": "First-generation IQ panel"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Keypads": [
+          {
+            "code": "IQ-KEYPAD",
+            "name": "PowerG Wireless Keypad",
+            "type": "Wireless PowerG",
+            "compatibility": ["IQ Panel 2", "IQ Panel 2 Plus", "IQ Panel 4", "IQ Panel 5"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Sensors": [
+          {
+            "code": "IQ-MOTION",
+            "name": "PowerG Motion Detector",
+            "type": "Wireless Motion",
+            "compatibility": ["IQ Panel 2", "IQ Panel 2 Plus", "IQ Panel 4", "IQ Panel 5"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "IQ-CONTACT",
+            "name": "PowerG Door/Window Contact",
+            "type": "Wireless Contact",
+            "compatibility": ["IQ Panel 2", "IQ Panel 2 Plus", "IQ Panel 4", "IQ Panel 5"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ],
+        "Accessories": [
+          {
+            "code": "IQ-BASE-PG",
+            "name": "Subwoofer Base (PowerG)",
+            "type": "Accessory",
+            "compatibility": ["IQ Panel 4", "IQ Panel 5"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "IQR-PG",
+            "name": "IQ Remote (PowerG)",
+            "type": "Wireless Remote",
+            "compatibility": ["IQ Panel 2", "IQ Panel 2 Plus", "IQ Panel 4", "IQ Panel 5"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ]
+      }
+    },
+    "Paradox": {
+      "name": "Paradox Security Systems",
+      "url": "https://www.paradox.com/",
+      "series": {
+        "EVO Series": {
+          "status": "active",
+          "releaseYear": 2010,
+          "description": "High-security bus-based panels with modular expansion",
+          "models": [
+            {
+              "code": "EVO HD",
+              "name": "EVO HD Bus Panel",
+              "zones": 192,
+              "wireless": true,
+              "releaseYear": 2015,
+              "eolResistor": "1k Ohm",
+              "notes": "High-definition display, enterprise-grade"
+            },
+            {
+              "code": "EVO 192",
+              "name": "EVO 192 Large System",
+              "zones": 192,
+              "wireless": true,
+              "releaseYear": 2010,
+              "eolResistor": "1k Ohm",
+              "notes": "Maximum zone capacity"
+            },
+            {
+              "code": "EVO 96",
+              "name": "EVO 96 Mid-Range",
+              "zones": 96,
+              "wireless": true,
+              "releaseYear": 2010,
+              "eolResistor": "1k Ohm",
+              "notes": "Commercial standard"
+            }
+          ]
+        },
+        "Magellan": {
+          "status": "legacy",
+          "releaseYear": 2005,
+          "description": "Consumer-focused wireless hybrid panels",
+          "models": [
+            {
+              "code": "MG5075",
+              "name": "Magellan 5075 Wireless",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2005,
+              "eolResistor": "1k Ohm",
+              "notes": "Popular residential wireless hybrid"
+            },
+            {
+              "code": "MG5050",
+              "name": "Magellan 5050 Standard",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 2003,
+              "eolResistor": "1k Ohm",
+              "notes": "Entry-level wireless panel"
+            }
+          ]
+        },
+        "Spectra": {
+          "status": "legacy",
+          "releaseYear": 1995,
+          "description": "Mid-range hybrid panels from the 1990s-2000s",
+          "models": [
+            {
+              "code": "SP6000",
+              "name": "Spectra SP6000",
+              "zones": 64,
+              "wireless": true,
+              "releaseYear": 2000,
+              "eolResistor": "1k Ohm",
+              "notes": "Commercial-grade hybrid"
+            },
+            {
+              "code": "SP7000",
+              "name": "Spectra SP7000",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2002,
+              "eolResistor": "1k Ohm",
+              "notes": "Large system variant"
+            }
+          ]
+        },
+        "Digiplex": {
+          "status": "vintage",
+          "releaseYear": 1990,
+          "description": "Original Paradox hardwired panels",
+          "models": [
+            {
+              "code": "Digiplex 16",
+              "name": "Digiplex 16-Zone",
+              "zones": 16,
+              "wireless": false,
+              "releaseYear": 1990,
+              "eolResistor": "1k Ohm",
+              "notes": "Vintage hardwired only"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Communicators": [
+          {
+            "code": "PCS265LTE",
+            "name": "LTE Module",
+            "type": "Cellular LTE",
+            "compatibility": ["EVO HD", "EVO 192", "EVO 96", "MG5075", "MG5050"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "PCS250",
+            "name": "GSM/GPRS Communicator",
+            "type": "Cellular GSM",
+            "compatibility": ["EVO 192", "EVO 96", "MG5075", "MG5050"],
+            "discontinued": true,
+            "replacement": "PCS265LTE (LTE replacement)"
+          }
+        ]
+      }
+    },
+    "Napco": {
+      "name": "Napco Security Technologies",
+      "url": "https://www.napcosecurity.com/",
+      "series": {
+        "Gemini": {
+          "status": "legacy",
+          "releaseYear": 1995,
+          "description": "Hybrid hardwired/wireless panels with modular design",
+          "models": [
+            {
+              "code": "GEM-P9600",
+              "name": "Gemini P9600 Enterprise",
+              "zones": 128,
+              "wireless": true,
+              "releaseYear": 2008,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Large commercial system"
+            },
+            {
+              "code": "GEM-P3200",
+              "name": "Gemini P3200 Commercial",
+              "zones": 64,
+              "wireless": true,
+              "releaseYear": 2000,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Commercial-grade hybrid"
+            },
+            {
+              "code": "GEM-P1632",
+              "name": "Gemini P1632 Standard",
+              "zones": 32,
+              "wireless": true,
+              "releaseYear": 1998,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Most common Gemini variant"
+            },
+            {
+              "code": "GEM-P816",
+              "name": "Gemini P816 Residential",
+              "zones": 16,
+              "wireless": true,
+              "releaseYear": 1995,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Entry-level hybrid"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Communicators": [
+          {
+            "code": "SLE-LTEV-CFB-PS",
+            "name": "StarLink Verizon LTE Communicator",
+            "type": "Cellular LTE",
+            "compatibility": ["GEM-P1632", "GEM-P3200", "GEM-P9600"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "SLE-LTEA-CFB-PS",
+            "name": "StarLink AT&T LTE Communicator",
+            "type": "Cellular LTE",
+            "compatibility": ["GEM-P1632", "GEM-P3200", "GEM-P9600"],
+            "discontinued": false,
+            "replacement": null
+          },
+          {
+            "code": "StarLink SLE-LTE",
+            "name": "Napco Radio (Legacy)",
+            "type": "Cellular",
+            "compatibility": ["GEM-P1632", "GEM-P3200"],
+            "discontinued": true,
+            "replacement": "SLE-LTEV-CFB-PS or SLE-LTEA-CFB-PS"
+          }
+        ]
+      }
+    },
+    "Elk": {
+      "name": "Elk Products",
+      "url": "https://www.elkproducts.com/",
+      "series": {
+        "M1 Series": {
+          "status": "active",
+          "releaseYear": 2002,
+          "description": "Modular home automation and security hub",
+          "models": [
+            {
+              "code": "M1G",
+              "name": "M1 Gold Automation Hub",
+              "zones": 16,
+              "wireless": true,
+              "releaseYear": 2010,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Current generation with enhanced features"
+            },
+            {
+              "code": "M1E",
+              "name": "M1 Elite",
+              "zones": 16,
+              "wireless": true,
+              "releaseYear": 2005,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Mid-range automation controller"
+            },
+            {
+              "code": "M1EZ8",
+              "name": "M1 EZ8 Entry-Level",
+              "zones": 8,
+              "wireless": true,
+              "releaseYear": 2002,
+              "eolResistor": "2.2k Ohm",
+              "notes": "Original M1 entry-level model"
+            }
+          ]
+        }
+      },
+      "peripherals": {
+        "Communicators": [
+          {
+            "code": "M1XEP",
+            "name": "Ethernet Interface",
+            "type": "Network",
+            "compatibility": ["M1G", "M1E", "M1EZ8"],
+            "discontinued": false,
+            "replacement": null
+          }
+        ]
+      }
+    }
+  },
+  "radioCompatibilityMatrix": {
+    "LTE": [
+      {
+        "radioModel": "LTEM-XV",
+        "carrier": "Verizon",
+        "technology": "LTE Cat-M1",
+        "compatiblePanels": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "VISTA-128FBPT"],
+        "replacedBy": "LTEM-XV (current)",
+        "replaces": ["LTE-XV", "GSMX4G"]
+      },
+      {
+        "radioModel": "LTEM-XA",
+        "carrier": "AT&T",
+        "technology": "LTE Cat-M1",
+        "compatiblePanels": ["VISTA-15P", "VISTA-20P", "VISTA-128BPT", "VISTA-128FBPT"],
+        "replacedBy": null,
+        "replaces": ["LTE-XA", "CDMA-X", "GSMX4G"]
+      },
+      {
+        "radioModel": "TL280LE",
+        "carrier": "Dual (Verizon/AT&T)",
+        "technology": "LTE Dual Path",
+        "compatiblePanels": ["HS2032", "HS2064", "HS2128"],
+        "replacedBy": null,
+        "replaces": ["TL260-LTE"]
+      },
+      {
+        "radioModel": "LE4010",
+        "carrier": "Universal",
+        "technology": "LTE",
+        "compatiblePanels": ["PC1616", "PC1832", "PC1864", "HS2032", "HS2064", "HS2128", "GEM-P1632", "GEM-P3200", "EVO 96", "EVO 192"],
+        "replacedBy": null,
+        "replaces": ["3G2060R", "HSPA communicators"]
+      },
+      {
+        "radioModel": "PCS265LTE",
+        "carrier": "Dual (Verizon/AT&T)",
+        "technology": "LTE",
+        "compatiblePanels": ["EVO HD", "EVO 192", "EVO 96", "MG5075", "MG5050"],
+        "replacedBy": null,
+        "replaces": ["PCS250"]
+      },
+      {
+        "radioModel": "SLE-LTEV-CFB-PS",
+        "carrier": "Verizon",
+        "technology": "LTE",
+        "compatiblePanels": ["GEM-P1632", "GEM-P3200", "GEM-P9600"],
+        "replacedBy": null,
+        "replaces": ["StarLink SLE-LTE"]
+      }
+    ],
+    "3G_Deprecated": [
+      {
+        "radioModel": "3G2060R",
+        "carrier": "HSPA",
+        "technology": "3G HSPA",
+        "compatiblePanels": ["PC1616", "PC1832", "PC1864"],
+        "replacedBy": "LE4010",
+        "replaces": null,
+        "deprecationNote": "3G networks sunset 2024-2025. Upgrade to LTE immediately."
+      },
+      {
+        "radioModel": "GSMX4G",
+        "carrier": "AT&T",
+        "technology": "3G GSM/GPRS",
+        "compatiblePanels": ["VISTA-15P", "VISTA-20P"],
+        "replacedBy": "LTEM-XA",
+        "replaces": null,
+        "deprecationNote": "Deprecated. Use LTEM-XA for AT&T LTE."
+      },
+      {
+        "radioModel": "CDMA-X",
+        "carrier": "Verizon",
+        "technology": "3G CDMA",
+        "compatiblePanels": ["VISTA-15P", "VISTA-20P"],
+        "replacedBy": "LTEM-XV",
+        "replaces": null,
+        "deprecationNote": "Verizon 3G sunset complete. Upgrade to LTEM-XV."
+      }
+    ]
+  }
+}
