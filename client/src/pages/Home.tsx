@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { AlertCircle, ExternalLink, Info, Shield } from "lucide-react";
+import { AlertCircle, ExternalLink, Info } from "lucide-react";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import panelDatabaseRaw from "../panelDatabase.json";
 
@@ -134,9 +134,11 @@ export default function Home() {
         <div className="container py-8">
           <div className="flex items-center justify-between gap-8">
             <div className="flex items-center gap-4">
-              <div className="bg-[#D02E35] p-3 rounded-lg">
-                <Shield className="w-8 h-8 text-white" />
-              </div>
+              <img 
+                src="https://d2xsxph8kpxj0f.cloudfront.net/310519663471887591/gHgRgdC7xvvRAFFTCWY7DM/WhiteLogoTall_02b834be.png" 
+                alt="Security ONE Logo" 
+                className="h-16 w-auto"
+              />
               <div>
                 <h1 className="text-4xl font-bold text-white font-montserrat">
                   SECURITY<span className="text-[#D02E35]">ONE</span>
@@ -501,7 +503,9 @@ export default function Home() {
         {!panelData && (
           <Card className="shadow-md border-0">
             <CardContent className="pt-12 pb-12 text-center">
-              <Shield className="w-16 h-16 text-[#D02E35] mx-auto mb-4 opacity-30" />
+              <div className="w-16 h-16 bg-[#D02E35] rounded-lg mx-auto mb-4 opacity-30 flex items-center justify-center">
+                <span className="text-white font-bold text-2xl font-montserrat">S1</span>
+              </div>
               <p className="text-[#757875] text-lg font-opensans">
                 Select a manufacturer, series, and model to view panel specifications and compatibility information.
               </p>
