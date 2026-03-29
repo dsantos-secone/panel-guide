@@ -1,0 +1,388 @@
+{
+  "sections": [
+    {
+      "id": "client_profile",
+      "title": "Client Profile",
+      "description": "Basic information about the prospective client",
+      "questions": [
+        {
+          "id": "client_type",
+          "question": "What type of facility is this?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "residential", "label": "Residential (Single Family/Condo)" },
+            { "value": "small_business", "label": "Small Business (1-5 employees)" },
+            { "value": "medium_business", "label": "Medium Business (6-50 employees)" },
+            { "value": "enterprise", "label": "Enterprise (50+ employees)" },
+            { "value": "government", "label": "Government/Institution" },
+            { "value": "retail", "label": "Retail" },
+            { "value": "hospitality", "label": "Hospitality (Hotel/Restaurant)" },
+            { "value": "industrial", "label": "Industrial/Warehouse" },
+            { "value": "healthcare", "label": "Healthcare Facility" },
+            { "value": "education", "label": "Education (School/University)" }
+          ]
+        },
+        {
+          "id": "facility_size",
+          "question": "Approximate square footage of the facility?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "under_1000", "label": "Under 1,000 sq ft" },
+            { "value": "1000_5000", "label": "1,000 - 5,000 sq ft" },
+            { "value": "5000_10000", "label": "5,000 - 10,000 sq ft" },
+            { "value": "10000_50000", "label": "10,000 - 50,000 sq ft" },
+            { "value": "over_50000", "label": "Over 50,000 sq ft" }
+          ]
+        },
+        {
+          "id": "primary_concern",
+          "question": "What is the primary security concern?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "theft_prevention", "label": "Theft Prevention" },
+            { "value": "unauthorized_access", "label": "Unauthorized Access Control" },
+            { "value": "employee_management", "label": "Employee Time & Access Management" },
+            { "value": "visitor_control", "label": "Visitor Control" },
+            { "value": "compliance", "label": "Compliance/Regulatory Requirements" },
+            { "value": "remote_monitoring", "label": "Remote Monitoring & Control" },
+            { "value": "after_hours", "label": "After-Hours Security" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "entry_points",
+      "title": "Entry Points & Access Requirements",
+      "description": "Identify all doors and access points that need control",
+      "questions": [
+        {
+          "id": "num_doors",
+          "question": "How many doors need access control?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "1", "label": "1 Door" },
+            { "value": "2_3", "label": "2-3 Doors" },
+            { "value": "4_6", "label": "4-6 Doors" },
+            { "value": "7_10", "label": "7-10 Doors" },
+            { "value": "11_20", "label": "11-20 Doors" },
+            { "value": "over_20", "label": "Over 20 Doors" }
+          ]
+        },
+        {
+          "id": "door_types",
+          "question": "What types of doors need control? (Select all that apply)",
+          "type": "checkbox",
+          "required": true,
+          "options": [
+            { "value": "main_entrance", "label": "Main Entrance/Front Door" },
+            { "value": "back_exit", "label": "Back Exit/Emergency Exit" },
+            { "value": "interior_offices", "label": "Interior Offices/Rooms" },
+            { "value": "server_room", "label": "Server Room/Secure Area" },
+            { "value": "storage", "label": "Storage/Inventory Room" },
+            { "value": "loading_dock", "label": "Loading Dock/Garage" },
+            { "value": "restrooms", "label": "Restrooms" },
+            { "value": "conference", "label": "Conference Rooms" }
+          ]
+        },
+        {
+          "id": "door_material",
+          "question": "What is the primary door material?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "standard_wood", "label": "Standard Wood Door" },
+            { "value": "metal", "label": "Metal/Steel Door" },
+            { "value": "glass", "label": "Glass Door" },
+            { "value": "frameless_glass", "label": "Frameless Glass Door" },
+            { "value": "mixed", "label": "Mixed Materials" }
+          ]
+        },
+        {
+          "id": "door_condition",
+          "question": "Are the doors currently equipped with locks?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no_locks", "label": "No Locks (New Installation)" },
+            { "value": "basic_locks", "label": "Basic Mechanical Locks" },
+            { "value": "keyed_alike", "label": "Keyed-Alike System" },
+            { "value": "existing_electronic", "label": "Existing Electronic Locks" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "access_control",
+      "title": "Access Control Strategy",
+      "description": "Define how access will be managed and who gets access",
+      "questions": [
+        {
+          "id": "user_groups",
+          "question": "How many different user groups/access levels do you need?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "1", "label": "1 Level (Everyone Same Access)" },
+            { "value": "2_3", "label": "2-3 Levels (e.g., Staff, Management, Owner)" },
+            { "value": "4_5", "label": "4-5 Levels (Departments/Roles)" },
+            { "value": "6_10", "label": "6-10 Levels (Complex Permissions)" },
+            { "value": "over_10", "label": "Over 10 Levels (Enterprise)" }
+          ]
+        },
+        {
+          "id": "total_users",
+          "question": "Approximate total number of users who need access?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "1_5", "label": "1-5 Users" },
+            { "value": "6_20", "label": "6-20 Users" },
+            { "value": "21_50", "label": "21-50 Users" },
+            { "value": "51_100", "label": "51-100 Users" },
+            { "value": "101_250", "label": "101-250 Users" },
+            { "value": "over_250", "label": "Over 250 Users" }
+          ]
+        },
+        {
+          "id": "credential_type",
+          "question": "What credential type(s) do you prefer? (Select all that apply)",
+          "type": "checkbox",
+          "required": true,
+          "options": [
+            { "value": "mobile_app", "label": "Mobile App/Smartphone" },
+            { "value": "keypad_pin", "label": "Keypad PIN Code" },
+            { "value": "rfid_card", "label": "RFID Card/Fob" },
+            { "value": "biometric", "label": "Biometric (Fingerprint/Face)" },
+            { "value": "key", "label": "Traditional Key" },
+            { "value": "qr_code", "label": "QR Code" }
+          ]
+        },
+        {
+          "id": "time_restrictions",
+          "question": "Do you need time-based access restrictions?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no", "label": "No - 24/7 Access" },
+            { "value": "business_hours", "label": "Business Hours Only (9am-5pm)" },
+            { "value": "custom_hours", "label": "Custom Hours (Varies by User/Door)" },
+            { "value": "shift_based", "label": "Shift-Based (Multiple Time Periods)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hardware_requirements",
+      "title": "Hardware & Installation",
+      "description": "Determine the physical components needed",
+      "questions": [
+        {
+          "id": "lock_type",
+          "question": "What type of electronic lock do you prefer?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "smart_lock", "label": "Smart Lock (WiFi/Z-Wave)" },
+            { "value": "mag_lock", "label": "Magnetic Lock (Fail-Secure)" },
+            { "value": "electric_strike", "label": "Electric Strike (Fail-Safe)" },
+            { "value": "motor_lock", "label": "Motor Lock (Retrofit)" },
+            { "value": "mixed", "label": "Mixed (Different Doors Need Different Types)" }
+          ]
+        },
+        {
+          "id": "power_requirements",
+          "question": "Are all doors easily accessible for power?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "yes_all", "label": "Yes - All Doors Have Nearby Power" },
+            { "value": "some", "label": "Some Doors Have Power, Others Don't" },
+            { "value": "no_power", "label": "No - Limited Power Access" },
+            { "value": "outdoor", "label": "Outdoor Doors (Weather Considerations)" }
+          ]
+        },
+        {
+          "id": "reader_type",
+          "question": "What type of reader do you need?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "keypad", "label": "Keypad (PIN Entry)" },
+            { "value": "rfid", "label": "RFID Card Reader" },
+            { "value": "biometric", "label": "Biometric Reader" },
+            { "value": "mobile", "label": "Mobile App Only" },
+            { "value": "multi", "label": "Multi-Technology (Multiple Reader Types)" }
+          ]
+        },
+        {
+          "id": "installation_complexity",
+          "question": "What is the current state of the facility?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "new_construction", "label": "New Construction (Easiest)" },
+            { "value": "good_condition", "label": "Good Condition (Minimal Modifications)" },
+            { "value": "renovation", "label": "Renovation/Remodel (Some Modifications)" },
+            { "value": "historic", "label": "Historic Building (Limited Modifications)" },
+            { "value": "complex", "label": "Complex/Multi-Level (Most Challenging)" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "monitoring_integration",
+      "title": "Monitoring & Integration",
+      "description": "Define how the system will be monitored and integrated",
+      "questions": [
+        {
+          "id": "monitoring_needs",
+          "question": "Do you need professional monitoring?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no_monitoring", "label": "No - Self-Managed Only" },
+            { "value": "alerts_only", "label": "Alerts Only (Email/SMS)" },
+            { "value": "basic_monitoring", "label": "Basic Monitoring (24/7 Alerts)" },
+            { "value": "professional_monitoring", "label": "Professional Monitoring (24/7 Response)" }
+          ]
+        },
+        {
+          "id": "remote_access",
+          "question": "Do you need remote access/control?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no", "label": "No - On-Site Only" },
+            { "value": "mobile_app", "label": "Mobile App Access" },
+            { "value": "web_portal", "label": "Web Portal Access" },
+            { "value": "both", "label": "Both Mobile App & Web Portal" }
+          ]
+        },
+        {
+          "id": "existing_systems",
+          "question": "Do you have existing security systems to integrate?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no_systems", "label": "No - New Installation" },
+            { "value": "alarm_only", "label": "Existing Alarm System" },
+            { "value": "cameras", "label": "Existing Cameras/Video" },
+            { "value": "access_control", "label": "Existing Access Control" },
+            { "value": "multiple", "label": "Multiple Systems (Need Integration)" }
+          ]
+        },
+        {
+          "id": "reporting_needs",
+          "question": "What reporting do you need?",
+          "type": "checkbox",
+          "required": true,
+          "options": [
+            { "value": "access_logs", "label": "Access Logs (Who/When/Where)" },
+            { "value": "failed_attempts", "label": "Failed Access Attempts" },
+            { "value": "after_hours", "label": "After-Hours Access Reports" },
+            { "value": "compliance", "label": "Compliance Reports" },
+            { "value": "employee_time", "label": "Employee Time Tracking" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "budget_timeline",
+      "title": "Budget & Timeline",
+      "description": "Understand project constraints and expectations",
+      "questions": [
+        {
+          "id": "budget_range",
+          "question": "What is your approximate budget range?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "under_2k", "label": "Under $2,000" },
+            { "value": "2k_5k", "label": "$2,000 - $5,000" },
+            { "value": "5k_10k", "label": "$5,000 - $10,000" },
+            { "value": "10k_25k", "label": "$10,000 - $25,000" },
+            { "value": "25k_50k", "label": "$25,000 - $50,000" },
+            { "value": "over_50k", "label": "Over $50,000" },
+            { "value": "flexible", "label": "Flexible - Depends on Recommendations" }
+          ]
+        },
+        {
+          "id": "timeline",
+          "question": "What is your desired timeline for installation?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "asap", "label": "ASAP (Within 2 Weeks)" },
+            { "value": "1_month", "label": "Within 1 Month" },
+            { "value": "1_3_months", "label": "1-3 Months" },
+            { "value": "3_6_months", "label": "3-6 Months" },
+            { "value": "flexible", "label": "Flexible - No Specific Timeline" }
+          ]
+        },
+        {
+          "id": "maintenance",
+          "question": "Are you interested in ongoing maintenance/support?",
+          "type": "select",
+          "required": true,
+          "options": [
+            { "value": "no", "label": "No - Self-Managed" },
+            { "value": "basic", "label": "Basic Support (Troubleshooting)" },
+            { "value": "standard", "label": "Standard Support (Monthly Monitoring)" },
+            { "value": "premium", "label": "Premium Support (24/7 Monitoring & Maintenance)" }
+          ]
+        }
+      ]
+    }
+  ],
+  "recommendations": {
+    "entry_level": {
+      "name": "Entry Level - Single Door",
+      "description": "Perfect for small businesses or residential with basic access needs",
+      "components": [
+        "1x Alarm.com Smart Lock (WiFi-Enabled)",
+        "1x Keypad or Mobile App Access",
+        "1x Basic Monitoring (Alerts Only)",
+        "Installation & Setup"
+      ],
+      "estimated_cost": "$1,500 - $2,500",
+      "best_for": ["residential", "small_business"],
+      "features": ["Mobile App Control", "PIN Code Access", "Email/SMS Alerts", "Basic Reporting"]
+    },
+    "small_business": {
+      "name": "Small Business - Multi-Door",
+      "description": "Ideal for small offices with multiple entry points",
+      "components": [
+        "2-5x Alarm.com Smart Locks",
+        "RFID Card Readers + Keypad",
+        "Access Control Panel",
+        "Professional Monitoring",
+        "Web Portal Access",
+        "Installation & Configuration"
+      ],
+      "estimated_cost": "$5,000 - $10,000",
+      "best_for": ["small_business", "retail"],
+      "features": ["Multiple User Levels", "Time-Based Access", "Access Logs", "Mobile & Web Control", "Professional Monitoring"]
+    },
+    "enterprise": {
+      "name": "Enterprise - Full Integration",
+      "description": "Comprehensive solution for large facilities with complex requirements",
+      "components": [
+        "10+ Alarm.com Smart Locks",
+        "Multi-Technology Readers (RFID, Biometric, Keypad)",
+        "Advanced Access Control Server",
+        "Video Integration",
+        "Professional 24/7 Monitoring",
+        "Advanced Reporting & Analytics",
+        "Full Integration with Existing Systems",
+        "Professional Installation & Training"
+      ],
+      "estimated_cost": "$25,000 - $100,000+",
+      "best_for": ["enterprise", "government", "healthcare", "education"],
+      "features": ["Unlimited User Levels", "Advanced Time Scheduling", "Biometric Authentication", "Video Verification", "Compliance Reporting", "API Integration", "Custom Workflows"]
+    }
+  }
+}
