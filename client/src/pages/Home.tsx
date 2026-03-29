@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -70,6 +71,7 @@ interface Database {
 }
 
 export default function Home() {
+  const [, setLocation] = useLocation();
   const [database] = useState<Database>(panelDatabaseRaw as Database);
   const [selectedMfg, setSelectedMfg] = useState<string>("");
   const [selectedSeries, setSelectedSeries] = useState<string>("");
@@ -144,7 +146,7 @@ export default function Home() {
                   SECURITY<span className="text-[#D02E35]">ONE</span>
                 </h1>
                 <p className="text-slate-300 text-sm mt-1 font-opensans">
-                  Technical Panel Reference Guide
+                  Technical Tools & Resources
                 </p>
               </div>
             </div>
@@ -152,6 +154,22 @@ export default function Home() {
               <p className="font-montserrat font-semibold">Stop Crime Before It Starts™</p>
               <p className="text-xs mt-1">AI Detected. Human Intervened.</p>
             </div>
+          </div>
+          {/* Navigation */}
+          <div className="flex gap-2 border-t border-slate-600 pt-4">
+            <Button
+              onClick={() => setLocation("/")}
+              className="bg-[#D02E35] hover:bg-[#9B2027] text-white font-montserrat font-semibold px-4 py-2"
+            >
+              Panel Reference
+            </Button>
+            <Button
+              onClick={() => setLocation("/door-access-designer")}
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-[#2E302E] font-montserrat font-semibold px-4 py-2"
+            >
+              Door Access Designer
+            </Button>
           </div>
         </div>
       </header>
